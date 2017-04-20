@@ -6,7 +6,7 @@ require 'graphql/client'
 require 'graphql/client/http'
 require 'terminal-table'
 
-GRAPHQL_ENDPOINT = 'https://api.qnypstaging.com/graphql'.freeze
+GRAPHQL_ENDPOINT = 'https://api.qnyp.com/graphql'.freeze
 SCHEMA_DUMP_FILE = './schema.json'.freeze
 ACCESS_TOKEN = ENV['ACCESS_TOKEN']
 
@@ -36,22 +36,24 @@ Client = GraphQL::Client.new(
 
 # タイトルの情報を取得するGraphQLクエリ
 Query = Client.parse <<-GRAPHQL
-  query ($databaseId: Int!) {
-    title(databaseId: $databaseId) {
-      id
-      databaseId
-      name
-      nameKana
-      originalMedia
-      airedFrom
-      airedTo
-      episodes {
-        edges {
-          node {
-            id
-            identifier
-            numberText
-            subtitle
+  query ($id: ID!) {
+    node(id: $id) {
+      ... on Title {
+        id
+        databaseId
+        name
+        nameKana
+        originalMedia
+        airedFrom
+        airedTo
+        episodes {
+          edges {
+            node {
+              id
+              identifier
+              numberText
+              subtitle
+            }
           }
         }
       }
@@ -61,7 +63,7 @@ GRAPHQL
 
 # GraphQLクエリに与える変数
 variables = {
-  databaseId: ARGV[0].to_i,
+  id: ARGV[0],
 }
 
 # GraphQLクエリの実行
@@ -71,11 +73,11 @@ response = Client.query(Query, variables: variables)
 if response.data
   # クエリの実行が行われた場合は response.data に null 以外が返される
   data = response.data
-  if data.title
+  if data.node
     # フィールドの値の取得に成功している場合の処理
 
     # タイトル情報の出力
-    title = data.title
+    title = data.node
     title_rows = [
       ['ID', title.id],
       ['データベースID', title.databaseId],

@@ -6,7 +6,7 @@ require 'graphql/client'
 require 'graphql/client/http'
 require 'terminal-table'
 
-GRAPHQL_ENDPOINT = 'https://api.qnypstaging.com/graphql'.freeze
+GRAPHQL_ENDPOINT = 'https://api.qnyp.com/graphql'.freeze
 SCHEMA_DUMP_FILE = './schema.json'.freeze
 ACCESS_TOKEN = ENV['ACCESS_TOKEN']
 
@@ -14,11 +14,6 @@ if ACCESS_TOKEN.blank?
   puts '環境変数 ACCESS_TOKEN にアクセストークンを設定してください'
   exit 1
 end
-
-# if SEARCH_KEYWORD.blank?
-#   puts 'Please specify search keyword.'
-#   exit 1
-# end
 
 # HTTPアダプタの生成
 HTTPAdapter = GraphQL::Client::HTTP.new(GRAPHQL_ENDPOINT) do
@@ -54,6 +49,7 @@ Query = Client.parse <<-GRAPHQL
       edges {
         node {
           id
+          databaseId
           name
           airedFrom
           originalMedia
@@ -95,8 +91,10 @@ if response.data
       ]
     end
 
-    headings = ['ID', '名前', '放送開始日', '媒体', 'エピソード数']
-    table = Terminal::Table.new(headings: headings, rows: rows)
+    table = Terminal::Table.new(
+      headings: %w[ID 名前 放送開始日 媒体 エピソード数],
+      rows: rows
+    )
     if has_next_page
       puts "該当する#{total_count}件のうち20件を表示します。"
     else
