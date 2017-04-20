@@ -1,0 +1,51 @@
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude:
+    - 'vendor/**/*'
+  TargetRubyVersion: 2.4
+  UseCache: false
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Lint/UselessAccessModifier:
+  ContextCreatingMethods:
+    - class_methods
+    - concerning
+
+Metrics/AbcSize:
+  Max: 35
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 20
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/EmptyElse:
+  EnforcedStyle: empty
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
