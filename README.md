@@ -4,6 +4,7 @@
 
 - `search_titles.rb` - タイトルをキーワード検索して結果を出力します
 - `get_title.rb` - タイトルの情報を取得して結果を出力します
+- `create_log.rb` - エピソードの視聴ログを記録します
 
 サンプルを実行するにはqnypのアクセストークンが必要です。
 
@@ -47,3 +48,27 @@ $ ACCESS_TOKEN=アクセストークン bundle exec ./get_title.rb タイトル�
 実行例:
 
 <img src="./images/example2.png" width="640" height="540" alt="Screenshot" />
+
+## create_log.rb
+
+環境変数`ACCESS_TOKEN`にアクセストークンの値を、引数に対象のエピソードおよび記録する内容を指定します。
+本文を指定しなかった場合は、本文の無い視聴ログが作成されます。
+
+```console
+$ ACCESS_TOKEN=アクセストークン bundle exec ./create_log.rb エピソードのID 評価 本文
+```
+
+実行例:
+
+```console
+$ ACCESS_TOKEN=アクセストークン bundle exec ./create_log.rb RXBpc29kZS03NDkyOA GREAT "すごーい！"
+
+id: TG9nLTIxMTcw
+databaeId: XXXXX
+createdAt: 2017-04-28T11:11:00Z
+body: すごーい！
+rating: GREAT
+user.username: junya
+episode.subtitle: さばんなちほー
+url: http://qnyp.com/junya/logs/XXXXX
+```
