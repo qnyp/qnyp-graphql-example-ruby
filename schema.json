@@ -12,15 +12,42 @@
         {
           "kind": "OBJECT",
           "name": "Query",
-          "description": "スキーマのルートクエリ。",
+          "description": "The query root of qnyp's GraphQL interface.",
           "fields": [
             {
               "name": "episode",
-              "description": "エピソード",
+              "description": "オブジェクトIDに対応するエピソードを取得します。",
+              "args": [
+                {
+                  "name": "id",
+                  "description": "オブジェクトID",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Episode",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "episodeByDatabaseId",
+              "description": "データベースIDに対応するエピソードを取得します。",
               "args": [
                 {
                   "name": "databaseId",
-                  "description": null,
+                  "description": "データベースID",
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -43,11 +70,38 @@
             },
             {
               "name": "log",
-              "description": "視聴ログ",
+              "description": "オブジェクトIDに対応する視聴ログを取得します。",
+              "args": [
+                {
+                  "name": "id",
+                  "description": "オブジェクトID",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Log",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "logByDatabaseId",
+              "description": "データベースIDに対応する視聴ログを取得します。",
               "args": [
                 {
                   "name": "databaseId",
-                  "description": null,
+                  "description": "データベースID",
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -70,11 +124,11 @@
             },
             {
               "name": "node",
-              "description": "指定されたIDのオブジェクトを取得します。",
+              "description": "オブジェクトIDに対応するオブジェクトを取得します。",
               "args": [
                 {
                   "name": "id",
-                  "description": "オブジェクトのID",
+                  "description": "オブジェクトID",
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -97,11 +151,11 @@
             },
             {
               "name": "nodes",
-              "description": "指定されたIDのオブジェクトをすべて取得します。",
+              "description": "オブジェクトIDに対応するすべてのオブジェクトを取得します。",
               "args": [
                 {
                   "name": "ids",
-                  "description": "オブジェクトのIDのリスト",
+                  "description": "オブジェクトIDのリスト",
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -136,11 +190,11 @@
             },
             {
               "name": "searchTitles",
-              "description": "Search titles",
+              "description": "タイトルを検索します。",
               "args": [
                 {
                   "name": "first",
-                  "description": "Returns the first _n_ elements from the list.",
+                  "description": "リストの最初のn件を返す(1〜100)。",
                   "type": {
                     "kind": "SCALAR",
                     "name": "Int",
@@ -150,7 +204,7 @@
                 },
                 {
                   "name": "after",
-                  "description": "Returns the elements in the list that come after the specified global ID.",
+                  "description": "このカーソルIDよりも後の要素を返す。",
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
@@ -160,7 +214,7 @@
                 },
                 {
                   "name": "last",
-                  "description": "Returns the last _n_ elements from the list.",
+                  "description": "リストの最後のn件を返す(1〜100)。",
                   "type": {
                     "kind": "SCALAR",
                     "name": "Int",
@@ -170,7 +224,7 @@
                 },
                 {
                   "name": "before",
-                  "description": "Returns the elements in the list that come before the specified global ID.",
+                  "description": "このカーソルIDよりも前の要素を返す。",
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
@@ -180,7 +234,7 @@
                 },
                 {
                   "name": "query",
-                  "description": null,
+                  "description": "検索キーワード。",
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -194,7 +248,7 @@
                 },
                 {
                   "name": "orderBy",
-                  "description": null,
+                  "description": "結果のソート条件。",
                   "type": {
                     "kind": "INPUT_OBJECT",
                     "name": "TitleOrder",
@@ -213,11 +267,38 @@
             },
             {
               "name": "title",
-              "description": "タイトル",
+              "description": "オブジェクトIDに対応するタイトルを取得します。",
+              "args": [
+                {
+                  "name": "id",
+                  "description": "オブジェクトID",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Title",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "titleByDatabaseId",
+              "description": "データベースIDに対応するタイトルを取得します。",
               "args": [
                 {
                   "name": "databaseId",
-                  "description": null,
+                  "description": "データベースID",
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -240,7 +321,7 @@
             },
             {
               "name": "user",
-              "description": "ユーザー。",
+              "description": "ユーザー名に対応するユーザーを取得します。",
               "args": [
                 {
                   "name": "username",
@@ -267,7 +348,7 @@
             },
             {
               "name": "viewer",
-              "description": "アクセストークンに対応するユーザー。",
+              "description": "使用しているアクセストークンに対応するユーザーを取得します。",
               "args": [
 
               ],
@@ -330,14 +411,18 @@
             },
             {
               "name": "totalCount",
-              "description": "タイトルの総数",
+              "description": "タイトルの総数。",
               "args": [
 
               ],
               "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -398,47 +483,39 @@
         {
           "kind": "OBJECT",
           "name": "Title",
-          "description": "タイトル。",
+          "description": "  タイトル。\n\n  TVシリーズや劇場版、OVAタイトルなどのアニメ作品をあらわします。\n",
           "fields": [
             {
               "name": "airedFrom",
-              "description": "放送開始日(YYYY-MM-DD)",
+              "description": "放送開始日(YYYY-MM-DD)。",
               "args": [
 
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "airedTo",
-              "description": "放送終了日(YYYY-MM-DD)",
+              "description": "放送終了日(YYYY-MM-DD)。",
               "args": [
 
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "createdAt",
-              "description": "作成日時",
+              "description": "作成日時。",
               "args": [
 
               ],
@@ -456,7 +533,7 @@
             },
             {
               "name": "databaseId",
-              "description": "データベースにおけるプライマリキー。",
+              "description": "データベースID。データベースにおけるプライマリキー。",
               "args": [
 
               ],
@@ -474,7 +551,7 @@
             },
             {
               "name": "episodes",
-              "description": "タイトルに含まれるエピソード",
+              "description": "タイトルに含まれるエピソード。",
               "args": [
                 {
                   "name": "first",
@@ -527,7 +604,7 @@
             },
             {
               "name": "hashtags",
-              "description": "ハッシュタグ",
+              "description": "Twitterハッシュタグのリスト。",
               "args": [
 
               ],
@@ -567,7 +644,7 @@
             },
             {
               "name": "name",
-              "description": "作品名",
+              "description": "作品名。",
               "args": [
 
               ],
@@ -585,7 +662,7 @@
             },
             {
               "name": "nameKana",
-              "description": "作品名の読み仮名",
+              "description": "作品名の読み仮名。",
               "args": [
 
               ],
@@ -603,7 +680,7 @@
             },
             {
               "name": "originalMedia",
-              "description": "初出媒体",
+              "description": "メディア。作品の初出媒体。",
               "args": [
 
               ],
@@ -621,7 +698,7 @@
             },
             {
               "name": "totalLogsCount",
-              "description": "タイトルのエピソードに対する視聴ログの総数",
+              "description": "タイトルに属するエピソードに対する視聴ログの総数。",
               "args": [
 
               ],
@@ -631,6 +708,24 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "url",
+              "description": "タイトルのURL。",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
                   "ofType": null
                 }
               },
@@ -702,14 +797,18 @@
             },
             {
               "name": "totalCount",
-              "description": "エピソードの総数",
+              "description": "エピソードの総数。",
               "args": [
 
               ],
               "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -770,11 +869,11 @@
         {
           "kind": "OBJECT",
           "name": "Episode",
-          "description": "エピソード。",
+          "description": "  エピソード。\n\n  タイトルに紐づく各エピソードをあらわします。\n\n  映画などのTVシリーズではないタイトルの場合も、視聴ログを記録するための便宜上のエピソードが存在します。\n",
           "fields": [
             {
               "name": "databaseId",
-              "description": "データベースにおけるプライマリキー。",
+              "description": "データベースID。データベースにおけるプライマリキー。",
               "args": [
 
               ],
@@ -784,24 +883,6 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "hideNumberText",
-              "description": "話数表記を隠すかどうか。",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
                   "ofType": null
                 }
               },
@@ -828,7 +909,7 @@
             },
             {
               "name": "identifier",
-              "description": "識別子。同一タイトル内で一意となる。",
+              "description": "識別子。同一タイトル内で各エピソードを識別するための一意な値。",
               "args": [
 
               ],
@@ -846,11 +927,11 @@
             },
             {
               "name": "logs",
-              "description": null,
+              "description": "エピソードに対する視聴ログ。",
               "args": [
                 {
                   "name": "first",
-                  "description": "Returns the first _n_ elements from the list.",
+                  "description": "リストの最初のn件を返す(1〜100)。",
                   "type": {
                     "kind": "SCALAR",
                     "name": "Int",
@@ -860,7 +941,7 @@
                 },
                 {
                   "name": "after",
-                  "description": "Returns the elements in the list that come after the specified global ID.",
+                  "description": "ここで指定したカーソルよりも後の要素を返す。",
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
@@ -870,7 +951,7 @@
                 },
                 {
                   "name": "last",
-                  "description": "Returns the last _n_ elements from the list.",
+                  "description": "リストの最後のn件を返す(1〜100)。",
                   "type": {
                     "kind": "SCALAR",
                     "name": "Int",
@@ -880,7 +961,7 @@
                 },
                 {
                   "name": "before",
-                  "description": "Returns the elements in the list that come before the specified global ID.",
+                  "description": "ここで指定カーソルよりも前の要素を返す。",
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
@@ -890,7 +971,7 @@
                 },
                 {
                   "name": "channels",
-                  "description": "視聴ログを絞り込むための視聴媒体のリスト",
+                  "description": "視聴ログを絞り込むための視聴媒体のリスト\n    。",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -904,7 +985,7 @@
                 },
                 {
                   "name": "ratings",
-                  "description": "視聴ログを絞り込むための評価のリスト",
+                  "description": "視聴ログを絞り込むための評価のリスト。",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -927,7 +1008,7 @@
             },
             {
               "name": "logsCount",
-              "description": "視聴ログ数。エピソードに対する視聴ログの総数。",
+              "description": "視聴ログ件数。エピソードに対する視聴ログの総数。",
               "args": [
 
               ],
@@ -945,7 +1026,7 @@
             },
             {
               "name": "numberText",
-              "description": "固有の話数表記。固有の表記がない場合は空文字列。",
+              "description": "話数表記。話数の表記がない場合は null。",
               "args": [
 
               ],
@@ -958,44 +1039,50 @@
               "deprecationReason": null
             },
             {
-              "name": "storyUrl",
-              "description": "あらすじURL。公式サイトのあらすじページのURLです。",
+              "name": "score",
+              "description": "スコア。視聴ログの評価をもとにしたスコア。",
               "args": [
 
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "storyUrl",
+              "description": "あらすじURL。公式サイトのあらすじページのURL。",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "subtitle",
-              "description": "サブタイトル。エピソードのサブタイトルです。",
+              "description": "サブタイトル。サブタイトルがない場合は null。",
               "args": [
 
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "title",
-              "description": "タイトル。エピソードが含まれるタイトルです。",
+              "description": "タイトル。",
               "args": [
 
               ],
@@ -1005,6 +1092,24 @@
                 "ofType": {
                   "kind": "OBJECT",
                   "name": "Title",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "url",
+              "description": "エピソードのURL。",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
                   "ofType": null
                 }
               },
@@ -1066,14 +1171,18 @@
             },
             {
               "name": "totalCount",
-              "description": "視聴ログの総数",
+              "description": "該当する視聴ログの総数。",
               "args": [
 
               ],
               "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1134,11 +1243,11 @@
         {
           "kind": "OBJECT",
           "name": "Log",
-          "description": "視聴ログ。",
+          "description": "  視聴ログ。\n\n  エピソードに対するユーザーの視聴記録をあらわします。\n",
           "fields": [
             {
               "name": "body",
-              "description": "本文",
+              "description": "本文。プレーンテキスト。",
               "args": [
 
               ],
@@ -1156,7 +1265,7 @@
             },
             {
               "name": "bodyHTML",
-              "description": "本文(HTML)",
+              "description": "本文。HTMLでマークアップされたテキスト。",
               "args": [
 
               ],
@@ -1174,7 +1283,7 @@
             },
             {
               "name": "channel",
-              "description": "視聴媒体",
+              "description": "視聴媒体。",
               "args": [
 
               ],
@@ -1192,7 +1301,7 @@
             },
             {
               "name": "createdAt",
-              "description": "作成日時",
+              "description": "作成日時。",
               "args": [
 
               ],
@@ -1210,7 +1319,7 @@
             },
             {
               "name": "databaseId",
-              "description": "データベースにおけるプライマリキー。",
+              "description": "データベースID。データベースにおけるプライマリキー。",
               "args": [
 
               ],
@@ -1228,7 +1337,7 @@
             },
             {
               "name": "episode",
-              "description": "エピソード",
+              "description": "対象のエピソード。",
               "args": [
 
               ],
@@ -1264,7 +1373,7 @@
             },
             {
               "name": "rating",
-              "description": "評価",
+              "description": "評価。",
               "args": [
 
               ],
@@ -1282,7 +1391,7 @@
             },
             {
               "name": "spoiler",
-              "description": "ネタバレフラグ",
+              "description": "ネタバレフラグ。",
               "args": [
 
               ],
@@ -1300,7 +1409,7 @@
             },
             {
               "name": "title",
-              "description": "タイトル",
+              "description": "対象のエピソードが属するタイトル。",
               "args": [
 
               ],
@@ -1318,7 +1427,7 @@
             },
             {
               "name": "updatedAt",
-              "description": "最終更新日時",
+              "description": "更新日時。",
               "args": [
 
               ],
@@ -1335,8 +1444,26 @@
               "deprecationReason": null
             },
             {
+              "name": "url",
+              "description": "視聴ログのURL。",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "user",
-              "description": "ユーザー",
+              "description": "ユーザー。",
               "args": [
 
               ],
@@ -1387,7 +1514,7 @@
         {
           "kind": "ENUM",
           "name": "Channel",
-          "description": "どの環境で視聴したかをあらわす値。",
+          "description": "視聴媒体。どの媒体・環境で視聴したかをあらわす値。",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -1400,25 +1527,25 @@
             },
             {
               "name": "TV",
-              "description": "テレビ",
+              "description": "テレビ放送。",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "BD_DVD",
-              "description": "BD/DVD",
+              "description": "Blu-rayディスクやDVDなどのパッケージ。",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "NET",
-              "description": "ネット配信",
+              "description": "ネット配信。生放送やオンデマンド放送など。",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "THEATER",
-              "description": "映画館",
+              "description": "劇場・映画館など。",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -1428,7 +1555,7 @@
         {
           "kind": "SCALAR",
           "name": "DateTime",
-          "description": "ISO 8601の書式で表現した日時の文字列。",
+          "description": "  ISO 8601の拡張形式で日時を表現した文字列。\n\n  例: \"2017-04-23T00:26:37Z\"\n",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -1448,44 +1575,44 @@
         {
           "kind": "ENUM",
           "name": "Rating",
-          "description": "評価として設定できる値。5段階評価もしくは未評価。",
+          "description": "評価。5段階評価もしくは未評価のいずれか。",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
           "enumValues": [
             {
               "name": "GREAT",
-              "description": "とてもよかった(5)",
+              "description": "とてもよかった(5)。",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "GOOD",
-              "description": "まあまあよかった(4)",
+              "description": "まあまあよかった(4)。",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "AVERAGE",
-              "description": "ふつうだった(3)",
+              "description": "ふつうだった(3)。",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "BAD",
-              "description": "あまりよくなかった(2)",
+              "description": "あまりよくなかった(2)。",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "VERY_BAD",
-              "description": "よくなかった(1)",
+              "description": "よくなかった(1)。",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "NONE",
-              "description": "未評価(0)",
+              "description": "未評価(0)。",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -1509,7 +1636,7 @@
           "fields": [
             {
               "name": "createdAt",
-              "description": "サインアップ日時",
+              "description": "サインアップ日時。",
               "args": [
 
               ],
@@ -1527,7 +1654,7 @@
             },
             {
               "name": "databaseId",
-              "description": "データベースにおけるプライマリキー。",
+              "description": "データベースID。データベースにおけるプライマリキー。",
               "args": [
 
               ],
@@ -1563,7 +1690,7 @@
             },
             {
               "name": "language",
-              "description": "利用する言語",
+              "description": "UIに利用する言語。",
               "args": [
 
               ],
@@ -1581,11 +1708,11 @@
             },
             {
               "name": "logs",
-              "description": null,
+              "description": "ユーザーの視聴ログ。",
               "args": [
                 {
                   "name": "first",
-                  "description": "Returns the first _n_ elements from the list.",
+                  "description": "リストの最初のn件を返す(1〜100)。",
                   "type": {
                     "kind": "SCALAR",
                     "name": "Int",
@@ -1595,7 +1722,7 @@
                 },
                 {
                   "name": "after",
-                  "description": "Returns the elements in the list that come after the specified global ID.",
+                  "description": "ここで指定したカーソルよりも後の要素を返す。",
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
@@ -1605,7 +1732,7 @@
                 },
                 {
                   "name": "last",
-                  "description": "Returns the last _n_ elements from the list.",
+                  "description": "リストの最後のn件を返す(1〜100)。",
                   "type": {
                     "kind": "SCALAR",
                     "name": "Int",
@@ -1615,7 +1742,7 @@
                 },
                 {
                   "name": "before",
-                  "description": "Returns the elements in the list that come before the specified global ID.",
+                  "description": "ここで指定カーソルよりも前の要素を返す。",
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
@@ -1625,7 +1752,7 @@
                 },
                 {
                   "name": "channels",
-                  "description": "視聴ログを絞り込むための視聴媒体のリスト",
+                  "description": "視聴ログを絞り込むための視聴媒体のリスト\n    。",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1639,7 +1766,7 @@
                 },
                 {
                   "name": "ratings",
-                  "description": "視聴ログを絞り込むための評価のリスト",
+                  "description": "視聴ログを絞り込むための評価のリスト。",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1662,7 +1789,7 @@
             },
             {
               "name": "name",
-              "description": "名前",
+              "description": "名前。",
               "args": [
 
               ],
@@ -1680,7 +1807,7 @@
             },
             {
               "name": "profileImageURL",
-              "description": "プロフィール画像のURL",
+              "description": "プロフィール画像URL。",
               "args": [
 
               ],
@@ -1698,7 +1825,7 @@
             },
             {
               "name": "recentlyWatchedTitles",
-              "description": "最近見たタイトル",
+              "description": "ユーザーが最近見たタイトル。20件まで。",
               "args": [
                 {
                   "name": "first",
@@ -1750,8 +1877,26 @@
               "deprecationReason": null
             },
             {
+              "name": "url",
+              "description": "プロフィールページのURL。",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "username",
-              "description": "ユーザー名",
+              "description": "ユーザー名。全ユーザーで一意。",
               "args": [
 
               ],
@@ -1782,7 +1927,7 @@
         {
           "kind": "ENUM",
           "name": "Language",
-          "description": "利用可能な言語。",
+          "description": "言語。",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -1930,9 +2075,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "SCALAR",
+          "name": "Float",
+          "description": "Represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point).",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Date",
+          "description": "日付をあらわす文字列 (YYYY-MM-DD)。",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "Media",
-          "description": "タイトルがどのメデイアで公開されたかをあらわす値。",
+          "description": "媒体をあらわす値。",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -2064,11 +2229,11 @@
         {
           "kind": "OBJECT",
           "name": "Mutation",
-          "description": "スキーマのルートミューテーション。",
+          "description": "The root query for implementing GraphQL mutations.",
           "fields": [
             {
               "name": "createLog",
-              "description": null,
+              "description": "視聴ログを作成します。",
               "args": [
                 {
                   "name": "input",
@@ -2095,7 +2260,7 @@
             },
             {
               "name": "deleteLog",
-              "description": null,
+              "description": "視聴ログを削除します。",
               "args": [
                 {
                   "name": "input",
@@ -2122,7 +2287,7 @@
             },
             {
               "name": "updateLog",
-              "description": null,
+              "description": "視聴ログを更新します。",
               "args": [
                 {
                   "name": "input",
@@ -2175,8 +2340,8 @@
               "deprecationReason": null
             },
             {
-              "name": "createdLog",
-              "description": null,
+              "name": "log",
+              "description": "作成された視聴ログ。",
               "args": [
 
               ],
@@ -2214,21 +2379,17 @@
             },
             {
               "name": "body",
-              "description": null,
+              "description": "本文。プレーンテキスト。",
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
             {
               "name": "channel",
-              "description": null,
+              "description": "視聴媒体。",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2242,7 +2403,7 @@
             },
             {
               "name": "episodeId",
-              "description": null,
+              "description": "対象エピソードのオブジェクトID。",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2256,7 +2417,7 @@
             },
             {
               "name": "rating",
-              "description": null,
+              "description": "評価。",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2270,7 +2431,7 @@
             },
             {
               "name": "spoiler",
-              "description": null,
+              "description": "ネタバレフラグ。",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2307,8 +2468,8 @@
               "deprecationReason": null
             },
             {
-              "name": "deletedLog",
-              "description": null,
+              "name": "log",
+              "description": "削除されたログ。",
               "args": [
 
               ],
@@ -2346,7 +2507,7 @@
             },
             {
               "name": "logId",
-              "description": null,
+              "description": "削除するログのオブジェクトID。",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2383,8 +2544,8 @@
               "deprecationReason": null
             },
             {
-              "name": "updatedLog",
-              "description": null,
+              "name": "log",
+              "description": "更新されたログ。",
               "args": [
 
               ],
@@ -2422,7 +2583,7 @@
             },
             {
               "name": "body",
-              "description": null,
+              "description": "本文。プレーンテキスト。",
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -2432,7 +2593,7 @@
             },
             {
               "name": "channel",
-              "description": null,
+              "description": "視聴媒体。",
               "type": {
                 "kind": "ENUM",
                 "name": "Channel",
@@ -2442,7 +2603,7 @@
             },
             {
               "name": "logId",
-              "description": null,
+              "description": "更新するログのオブジェクトID。",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2456,7 +2617,7 @@
             },
             {
               "name": "rating",
-              "description": null,
+              "description": "評価。",
               "type": {
                 "kind": "ENUM",
                 "name": "Rating",
@@ -2466,7 +2627,7 @@
             },
             {
               "name": "spoiler",
-              "description": null,
+              "description": "ネタバレフラグ。",
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
