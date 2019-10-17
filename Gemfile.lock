@@ -9,7 +9,7 @@ GEM
       zeitwerk (~> 2.1, >= 2.1.8)
     concurrent-ruby (1.1.5)
     graphql (1.9.14)
-    graphql-client (0.15.0)
+    graphql-client (0.16.0)
       activesupport (>= 3.0)
       graphql (~> 1.8)
     i18n (1.7.0)
@@ -28,7 +28,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport (~> 6.0.0)
-  graphql-client (~> 0.15.0)
+  graphql-client (~> 0.16.0)
   terminal-table (~> 1.8.0)
 
 
