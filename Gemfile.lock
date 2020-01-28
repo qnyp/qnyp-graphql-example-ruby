@@ -8,7 +8,7 @@ GEM
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2)
     concurrent-ruby (1.1.5)
-    graphql (1.10.0)
+    graphql (1.10.1)
     graphql-client (0.16.0)
       activesupport (>= 3.0)
       graphql (~> 1.8)
