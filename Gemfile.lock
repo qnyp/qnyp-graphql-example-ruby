@@ -7,7 +7,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.7)
     graphql (1.11.2)
     graphql-client (0.16.0)
       activesupport (>= 3.0)
