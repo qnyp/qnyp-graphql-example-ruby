@@ -15,7 +15,7 @@ GEM
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     minitest (5.14.2)
-    terminal-table (1.8.0)
+    terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     thread_safe (0.3.6)
     tzinfo (1.2.7)
@@ -29,7 +29,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport (~> 6.0.3)
   graphql-client (~> 0.16.0)
-  terminal-table (~> 1.8.0)
+  terminal-table (~> 2.0.0)
 
 
 BUNDLED WITH
