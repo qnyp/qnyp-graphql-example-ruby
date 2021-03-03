@@ -14,7 +14,7 @@ GEM
       graphql (~> 1.8)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
-    minitest (5.14.3)
+    minitest (5.14.4)
     terminal-table (3.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     tzinfo (2.0.4)
