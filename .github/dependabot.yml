@@ -1,0 +1,21 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: weekly
+    day: wednesday
+    time: "06:00"
+    timezone: Asia/Tokyo
+  open-pull-requests-limit: 10
+  reviewers:
+  - juno
+  labels:
+  - dependencies
+  allow:
+  - dependency-type: direct
+  - dependency-type: indirect
+  ignore:
+  - dependency-name: activesupport
+    versions:
+    - 6.1.2.1
