@@ -11,7 +11,7 @@ GEM
     graphql-client (0.17.0)
       activesupport (>= 3.0)
       graphql (~> 1.10)
-    i18n (1.9.1)
+    i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     minitest (5.15.0)
     terminal-table (3.0.2)
