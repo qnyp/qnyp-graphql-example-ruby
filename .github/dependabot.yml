@@ -3,11 +3,9 @@ updates:
 - package-ecosystem: bundler
   directory: "/"
   schedule:
-    interval: weekly
-    day: wednesday
-    time: "06:00"
+    interval: monthly
     timezone: Asia/Tokyo
-  open-pull-requests-limit: 20
+  open-pull-requests-limit: 30
   labels:
   - dependencies
   allow:
