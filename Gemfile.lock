@@ -7,7 +7,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     concurrent-ruby (1.2.2)
-    graphql (2.0.26)
+    graphql (2.1.0)
     graphql-client (0.18.0)
       activesupport (>= 3.0)
       graphql
