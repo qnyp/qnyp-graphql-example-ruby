@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.1.1)
+    activesupport (7.1.2)
       base64
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
@@ -11,11 +11,11 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
-    base64 (0.1.1)
+    base64 (0.2.0)
     bigdecimal (3.1.4)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
-    drb (2.1.1)
+    drb (2.2.0)
       ruby2_keywords
     graphql (2.1.5)
       racc (~> 1.4)
@@ -25,7 +25,7 @@ GEM
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     minitest (5.20.0)
-    mutex_m (0.1.2)
+    mutex_m (0.2.0)
     racc (1.7.1)
     ruby2_keywords (0.0.5)
     terminal-table (3.0.2)
@@ -38,7 +38,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (~> 7.1.1)
+  activesupport (~> 7.1.2)
   graphql-client (~> 0.18.0)
   terminal-table (~> 3.0.2)
 
