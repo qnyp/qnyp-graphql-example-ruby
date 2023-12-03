@@ -17,7 +17,7 @@ GEM
     connection_pool (2.4.1)
     drb (2.2.0)
       ruby2_keywords
-    graphql (2.1.5)
+    graphql (2.1.6)
       racc (~> 1.4)
     graphql-client (0.18.0)
       activesupport (>= 3.0)
@@ -26,7 +26,7 @@ GEM
       concurrent-ruby (~> 1.0)
     minitest (5.20.0)
     mutex_m (0.2.0)
-    racc (1.7.1)
+    racc (1.7.3)
     ruby2_keywords (0.0.5)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
